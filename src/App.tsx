@@ -19,16 +19,6 @@ function App() {
     /^(.*?)\.playlist\.incubator4\.com$/
   );
 
-  let name = "";
-
-  if (match) {
-    const firstSegment = match[1];
-    console.log(firstSegment); // 输出 "a"
-    name = "/" + firstSegment;
-  } else {
-    name = location.pathname;
-  }
-
   return (
     <ThemeProvider theme={darkTheme}>
       <Router>
