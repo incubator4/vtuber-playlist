@@ -1,0 +1,840 @@
+color:
+  red: 60
+  green: 26
+  blue: 229
+avatar: https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/avatar/celina.jpg
+playlist:
+  - title: 囍
+    genre: ["古风"]
+  - title: 骁
+    genre: ["古风"]
+  - title: 本色
+    genre: ["古风"]
+  - title: 标题
+    genre: ["古风"]
+  - title: 赤伶
+    genre: ["古风"]
+  - title: 探窗
+    genre: ["古风"]
+  - title: 年轮
+    genre: ["古风"]
+  - title: 无羁
+    genre: ["古风"]
+  - title: 悟空
+    genre: ["古风"]
+  - title: 不染
+    genre: ["古风"]
+  - title: 诀爱
+    genre: ["古风"]
+  - title: 谪仙
+    genre: ["古风"]
+  - title: 故梦
+    genre: ["古风"]
+  - title: 山鬼
+    genre: ["古风"]
+  - title: 社戏
+    genre: ["古风"]
+  - title: 凉凉
+    genre: ["古风"]
+  - title: 思慕
+    genre: ["古风"]
+  - title: 月光
+    genre: ["古风"]
+  - title: 爱殇
+    genre: ["古风"]
+  - title: 余情
+    genre: ["古风"]
+  - title: 彼岸
+    genre: ["古风"]
+  - title: 等嫁
+    genre: ["古风"]
+  - title: 命轮
+    genre: ["古风"]
+  - title: 卜卦
+    genre: ["古风"]
+  - title: 大喜
+    genre: ["古风"]
+  - title: 悦神
+    genre: ["古风"]
+  - title: 小雨
+    genre: ["古风"]
+  - title: 参商
+    genre: ["古风"]
+  - title: 难却
+    genre: ["古风"]
+  - title: 仙瑶
+    genre: ["古风"]
+  - title: 琴师
+    genre: ["古风"]
+  - title: 孽海记
+    genre: ["古风"]
+  - title: 离人愁
+    genre: ["古风"]
+  - title: 镜中渊
+    genre: ["古风"]
+  - title: 风催雨
+    genre: ["古风"]
+  - title: 眉间雪
+    genre: ["古风"]
+  - title: 千年泪
+    genre: ["古风"]
+  - title: 逍遥叹
+    genre: ["古风"]
+  - title: 血如墨
+    genre: ["古风"]
+  - title: 红颜旧
+    genre: ["古风"]
+  - title: 回马枪
+    genre: ["古风"]
+  - title: 沈园外
+    genre: ["古风"]
+  - title: 离人赋
+    genre: ["古风"]
+  - title: 兰亭序
+    genre: ["古风"]
+  - title: 广寒宫
+    genre: ["古风"]
+  - title: 是风动
+    genre: ["古风"]
+  - title: 多情种
+    genre: ["古风"]
+  - title: 苏幕遮
+    genre: ["古风"]
+  - title: 虞兮叹
+    genre: ["古风"]
+  - title: 九张机
+    genre: ["古风"]
+  - title: 星河叹
+    genre: ["古风"]
+  - title: 桃花诺
+    genre: ["古风"]
+  - title: 云与海
+    genre: ["古风"]
+  - title: 九万字
+    genre: ["古风"]
+  - title: 四万秋
+    genre: ["古风"]
+  - title: 星月落
+    genre: ["古风"]
+  - title: 大天蓬
+    genre: ["古风"]
+  - title: 黄梅戏
+    genre: ["古风"]
+  - title: 予君书
+    genre: ["古风"]
+  - title: 不问天
+    genre: ["古风"]
+  - title: 花亦山
+    genre: ["古风"]
+  - title: 眉南边
+    genre: ["古风"]
+  - title: 不老梦
+    genre: ["古风"]
+  - title: 牵丝戏
+    genre: ["古风"]
+  - title: 燕无歇
+    genre: ["古风"]
+  - title: 花雨落
+    genre: ["古风"]
+  - title: 梦回还
+    genre: ["古风"]
+  - title: 春三月
+    genre: ["古风"]
+  - title: 伯虎说
+    genre: ["古风"]
+  - title: 苏东坡
+    genre: ["古风"]
+  - title: 知否知否
+    genre: ["古风"]
+  - title: 烟雨行舟
+    genre: ["古风"]
+  - title: 桃花缘记
+    genre: ["古风"]
+  - title: 命理难说
+    genre: ["古风"]
+  - title: 西楼别序
+    genre: ["古风"]
+  - title: 棠梨煎雪
+    genre: ["古风"]
+  - title: 红拂夜奔
+    genre: ["古风"]
+  - title: 一画千年
+    genre: ["古风"]
+  - title: 美人画卷
+    genre: ["古风"]
+  - title: 长安姑娘
+    genre: ["古风"]
+  - title: 小城画师
+    genre: ["古风"]
+  - title: 十年人间
+    genre: ["古风"]
+  - title: 明月天涯
+    genre: ["古风"]
+  - title: 繁华唱遍
+    genre: ["古风"]
+  - title: 韶华未既
+    genre: ["古风"]
+  - title: 西厢寻他
+    genre: ["古风"]
+  - title: 千年之恋
+    genre: ["古风"]
+  - title: 吹灭小山河
+    genre: ["古风"]
+  - title: 折枝花满衣
+    genre: ["古风"]
+  - title: 三拜红尘凉
+    genre: ["古风"]
+  - title: 风过谢桃花
+    genre: ["古风"]
+  - title: 山海入梦来
+    genre: ["古风"]
+  - title: 吹梦到西洲
+    genre: ["古风"]
+  - title: 辞九门回忆
+    genre: ["古风"]
+  - title: 人间不值得
+    genre: ["古风"]
+  - title: 人间惊鸿客
+    genre: ["古风"]
+  - title: 晚夜微雨落海棠
+    genre: ["古风"]
+  - title: 我的一个道姑朋友
+    genre: ["古风"]
+  - title: 何必诗债换酒钱
+    genre: ["古风"]
+
+  - title: 爱
+    genre: ["流行"]
+  - title: 你
+    genre: ["流行", "甜歌"]
+  - title: 骗
+    genre: ["流行"]
+  - title: 画
+    genre: ["流行"]
+  - title: 痒
+    genre: ["流行"]
+  - title: 问
+    genre: ["流行"]
+  - title: 紫
+    genre: ["流行"]
+  - title: 叹
+    genre: ["流行"]
+  - title: 堕
+    genre: ["流行"]
+  - title: 笼
+    genre: ["流行"]
+  - title: 默
+    genre: ["流行"]
+  - title: 遇到
+    genre: ["流行", "甜歌"]
+  - title: 后来
+    genre: ["流行"]
+  - title: 微微
+    genre: ["流行", "甜歌"]
+  - title: 听海
+    genre: ["流行"]
+  - title: 来迟
+    genre: ["流行"]
+  - title: 够爱
+    genre: ["流行"]
+  - title: 勇气
+    genre: ["流行"]
+  - title: 破茧
+    genre: ["流行"]
+  - title: 下山
+    genre: ["流行"]
+  - title: 相思
+    genre: ["流行"]
+  - title: 暗香
+    genre: ["流行"]
+  - title: 黄昏
+    genre: ["流行"]
+  - title: 倒带
+    genre: ["流行"]
+  - title: 雨爱
+    genre: ["流行"]
+  - title: 左边
+    genre: ["流行"]
+  - title: 雨天
+    genre: ["流行"]
+  - title: 花海
+    genre: ["流行"]
+  - title: 嘉宾
+    genre: ["流行"]
+  - title: 失控
+    genre: ["流行"]
+  - title: 沉没
+    genre: ["流行"]
+  - title: 她说
+    genre: ["流行"]
+  - title: 成都
+    genre: ["流行", "民谣"]
+  - title: 不痛
+    genre: ["流行"]
+  - title: 疯子
+    genre: ["流行"]
+  - title: 遇见
+    genre: ["流行"]
+  - title: 宁夏
+    genre: ["流行"]
+  - title: 下潜
+    genre: ["流行"]
+  - title: 妥协
+    genre: ["流行"]
+  - title: 成全
+    genre: ["流行"]
+  - title: 红豆
+    genre: ["流行"]
+  - title: 矜持
+    genre: ["流行"]
+  - title: 浪费
+    genre: ["流行"]
+  - title: 续写
+    genre: ["流行"]
+  - title: 爱你
+    genre: ["流行", "甜歌"]
+  - title: 大眠
+    genre: ["流行"]
+  - title: 手表
+    genre: ["流行"]
+  - title: 旧账
+    genre: ["流行"]
+  - title: 大鱼
+    genre: ["流行"]
+  - title: 当你
+    genre: ["流行", "甜歌"]
+  - title: 尘埃
+    genre: ["流行"]
+  - title: 江南
+    genre: ["流行"]
+  - title: 拾忆
+    genre: ["流行"]
+  - title: 像鱼
+    genre: ["流行"]
+  - title: 沦陷
+    genre: ["流行"]
+  - title: 不如
+    genre: ["流行"]
+  - title: 空心
+    genre: ["流行"]
+  - title: 传奇
+    genre: ["流行"]
+  - title: 偏爱
+    genre: ["流行"]
+  - title: 演员
+    genre: ["流行"]
+  - title: 失忆
+    genre: ["流行"]
+  - title: 海底
+    genre: ["流行"]
+  - title: 唯一
+    genre: ["流行"]
+  - title: 短发
+    genre: ["流行"]
+  - title: 离人
+    genre: ["流行"]
+  - title: 晚婚
+    genre: ["流行"]
+  - title: 叶子
+    genre: ["流行"]
+  - title: 棋子
+    genre: ["流行"]
+  - title: 仗着
+    genre: ["流行"]
+  - title: 精卫
+    genre: ["流行"]
+  - title: 拆穿
+    genre: ["流行"]
+  - title: 煎熬
+    genre: ["流行", "🟦"]
+  - title: 停格
+    genre: ["流行"]
+  - title: 野子
+    genre: ["流行"]
+  - title: 天后
+    genre: ["流行"]
+  - title: 你走
+    genre: ["流行"]
+  - title: 阴天
+    genre: ["流行"]
+  - title: 问风
+    genre: ["流行"]
+  - title: 骗我
+    genre: ["流行"]
+  - title: 阿刁
+    genre: ["流行"]
+  - title: 暖暖
+    genre: ["流行", "甜歌"]
+  - title: 如愿
+    genre: ["流行"]
+  - title: 其实
+    genre: ["流行"]
+  - title: 走马
+    genre: ["流行", "民谣"]
+  - title: 曹操
+    genre: ["流行"]
+  - title: 新窝
+    genre: ["流行", "甜歌"]
+  - title: 星光
+    genre: ["流行"]
+  - title: 巡光
+    genre: ["流行"]
+  - title: 善变
+    genre: ["流行"]
+  - title: 嫌晚
+    genre: ["流行"]
+  - title: 篇章
+    genre: ["流行"]
+  - title: 暧昧
+    genre: ["流行"]
+  - title: 爱情
+    genre: ["流行"]
+  - title: 保留
+    genre: ["流行"]
+  - title: 我认
+    genre: ["流行"]
+  - title: 小小
+    genre: ["流行"]
+  - title: 舍得
+    genre: ["流行"]
+  - title: 天下
+    genre: ["流行"]
+  - title: I DO
+    genre: ["流行", "甜歌"]
+  - title: 执着
+    genre: ["流行"]
+  - title: 循迹
+    genre: ["流行"]
+  - title: 倒数
+    genre: ["流行"]
+  - title: 晚风
+    genre: ["流行", "RAP"]
+  - title: 雨蝶
+    genre: ["流行"]
+  - title: 小幸运
+    genre: ["流行"]
+  - title: 小情歌
+    genre: ["流行"]
+  - title: 小模样
+    genre: ["流行", "甜歌"]
+  - title: 喜欢你
+    genre: ["流行"]
+  - title: 年轮说
+    genre: ["流行"]
+  - title: 樱花草
+    genre: ["流行"]
+  - title: 水中花
+    genre: ["流行"]
+  - title: 孤勇者
+    genre: ["流行"]
+  - title: 学不会
+    genre: ["流行"]
+  - title: 遇江南
+    genre: ["流行", "甜歌"]
+  - title: 我要你
+    genre: ["流行"]
+  - title: 我走后
+    genre: ["流行"]
+  - title: 醉赤壁
+    genre: ["流行"]
+  - title: 安静了
+    genre: ["流行"]
+  - title: 说爱你
+    genre: ["流行", "甜歌"]
+  - title: 下雨天
+    genre: ["流行"]
+  - title: 天亮了
+    genre: ["流行"]
+  - title: 我太笨
+    genre: ["流行"]
+  - title: 南山南
+    genre: ["流行", "民谣"]
+  - title: 听说你
+    genre: ["流行"]
+  - title: 过不去
+    genre: ["流行"]
+  - title: 追光者
+    genre: ["流行"]
+  - title: 杀破狼
+    genre: ["流行"]
+  - title: 梦里花
+    genre: ["流行"]
+  - title: 明明就
+    genre: ["流行"]
+  - title: 女儿情
+    genre: ["流行"]
+  - title: 水星记
+    genre: ["流行"]
+  - title: 从前说
+    genre: ["流行"]
+  - title: 想某人
+    genre: ["流行"]
+  - title: 日不落
+    genre: ["流行", "甜歌"]
+  - title: 白月光
+    genre: ["流行"]
+  - title: 黑桃A
+    genre: ["流行"]
+  - title: 千百度
+    genre: ["流行"]
+  - title: 起风了
+    genre: ["流行"]
+  - title: 美人鱼
+    genre: ["流行"]
+  - title: 高老庄
+    genre: ["流行", "RAP"]
+  - title: 关键词
+    genre: ["流行"]
+  - title: upupu
+    genre: ["流行", "甜歌"]
+  - title: 达尔文
+    genre: ["流行"]
+  - title: 萱草花
+    genre: ["流行"]
+  - title: 我会等
+    genre: ["流行"]
+  - title: 愿与愁
+    genre: ["流行"]
+  - title: 敕勒歌
+    genre: ["流行"]
+  - title: 大平胸
+    genre: ["流行"]
+  - title: 月亮船
+    genre: ["流行"]
+  - title: 吴哥窟
+    genre: ["流行"]
+  - title: 怎么了
+    genre: ["流行"]
+  - title: 外婆桥
+    genre: ["流行"]
+  - title: 黄昏晓
+    genre: ["流行"]
+  - title: 叹云兮
+    genre: ["流行"]
+  - title: 太想念
+    genre: ["流行"]
+  - title: 爱上你
+    genre: ["流行"]
+  - title: 凄美地
+    genre: ["流行"]
+  - title: 坏女孩
+    genre: ["流行"]
+  - title: 欧若拉
+    genre: ["流行"]
+  - title: 水龙吟
+    genre: ["流行"]
+  - title: 若把你
+    genre: ["流行"]
+  - title: 伪善者
+    genre: ["流行"]
+  - title: 时间煮雨
+    genre: ["流行"]
+  - title: 一吻之间
+    genre: ["流行"]
+  - title: 光年之外
+    genre: ["流行"]
+  - title: 无人之岛
+    genre: ["流行"]
+  - title: 匆匆那年
+    genre: ["流行"]
+  - title: 忽然之间
+    genre: ["流行"]
+  - title: 可不可以
+    genre: ["流行"]
+  - title: 他不爱我
+    genre: ["流行"]
+  - title: 清明雨上
+    genre: ["流行"]
+  - title: 错位时空
+    genre: ["流行"]
+  - title: 星辰大海
+    genre: ["流行"]
+  - title: 飞鸟和蝉
+    genre: ["流行"]
+  - title: 飞云之下
+    genre: ["流行"]
+  - title: 爱丫爱丫
+    genre: ["流行"]
+  - title: 海市蜃楼
+    genre: ["流行"]
+  - title: 路过人间
+    genre: ["流行"]
+  - title: 佛系少女
+    genre: ["流行", "甜歌"]
+  - title: 我的世界
+    genre: ["流行"]
+  - title: 达拉崩吧
+    genre: ["流行", "🟦"]
+  - title: 音你闪耀
+    genre: ["流行", "RAP"]
+  - title: 三寸天堂
+    genre: ["流行"]
+  - title: 一爱难求
+    genre: ["流行"]
+  - title: 等你下课
+    genre: ["流行"]
+  - title: 三行情书
+    genre: ["流行"]
+  - title: 万物起舞
+    genre: ["流行"]
+  - title: 香水有毒
+    genre: ["流行"]
+  - title: 一分一寸
+    genre: ["流行"]
+  - title: 曾经你说
+    genre: ["流行"]
+  - title: 归途有风
+    genre: ["流行"]
+  - title: 已来不及
+    genre: ["流行"]
+  - title: 失落沙洲
+    genre: ["流行"]
+  - title: 说散就散
+    genre: ["流行"]
+  - title: 睫毛弯弯
+    genre: ["流行", "甜歌"]
+  - title: 夏天的风
+    genre: ["流行", "甜歌"]
+  - title: 不醉不会
+    genre: ["流行"]
+  - title: 修炼爱情
+    genre: ["流行"]
+  - title: 我们的爱
+    genre: ["流行"]
+  - title: 连名带姓
+    genre: ["流行"]
+  - title: 无人知晓
+    genre: ["流行"]
+  - title: 阿楚姑娘
+    genre: ["流行"]
+  - title: 小城夏天
+    genre: ["流行", "甜歌"]
+  - title: 孤独颂歌
+    genre: ["流行"]
+  - title: 熬夜上瘾
+    genre: ["流行", "甜歌"]
+  - title: 一生所爱
+    genre: ["流行"]
+  - title: 一眼万年
+    genre: ["流行"]
+  - title: 不想长大
+    genre: ["流行"]
+  - title: 香水百合
+    genre: ["流行", "甜歌"]
+  - title: 长大成人
+    genre: ["流行"]
+  - title: 危险派对
+    genre: ["流行", "RAP", "甜歌"]
+  - title: 呼吸决定
+    genre: ["流行"]
+  - title: 金玉良缘
+    genre: ["流行"]
+  - title: 到此为止
+    genre: ["流行"]
+  - title: 爱的供养
+    genre: ["流行"]
+  - title: 故事还长
+    genre: ["流行"]
+  - title: 天若有情
+    genre: ["流行"]
+  - title: 身骑白马
+    genre: ["流行"]
+  - title: 后会无期
+    genre: ["流行"]
+  - title: 我好想你
+    genre: ["流行"]
+  - title: 丢掉听觉
+    genre: ["流行"]
+  - title: 好久不见
+    genre: ["流行"]
+  - title: Letting go
+    genre: ["流行"]
+  - title: 梦的光点
+    genre: ["流行"]
+  - title: 左手指月
+    genre: ["流行", "🟦"]
+  - title: 爱似水仙
+    genre: ["流行"]
+  - title: 我的楼兰
+    genre: ["流行"]
+  - title: 阿斯匹林
+    genre: ["流行", "RAP"]
+  - title: 饿狼传说
+    genre: ["流行"]
+  - title: 独家记忆
+    genre: ["流行"]
+  - title: 今夜有雨
+    genre: ["流行"]
+  - title: 天下无双
+    genre: ["流行", "🟦"]
+  - title: 帮主夫人
+    genre: ["流行", "🟦"]
+  - title: 一试有成
+    genre: ["流行"]
+  - title: 最长的电影
+    genre: ["流行"]
+  - title: 遗失的美好
+    genre: ["流行"]
+  - title: 你曾是少年
+    genre: ["流行"]
+  - title: 会呼吸的痛
+    genre: ["流行"]
+  - title: 拜托丘比特
+    genre: ["流行"]
+  - title: 可惜不是你
+    genre: ["流行"]
+  - title: 如果爱忘了
+    genre: ["流行"]
+  - title: 迷人的危险
+    genre: ["流行"]
+  - title: 至少还有你
+    genre: ["流行"]
+  - title: 爱的华尔兹
+    genre: ["流行", "甜歌"]
+  - title: 妖精有话说
+    genre: ["流行"]
+  - title: 旅行中忘记
+    genre: ["流行"]
+  - title: 奇妙能力歌
+    genre: ["流行", "民谣"]
+  - title: 背对背拥抱
+    genre: ["流行"]
+  - title: 左半边翅膀
+    genre: ["流行"]
+  - title: 我要的飞翔
+    genre: ["流行"]
+  - title: 红色高跟鞋
+    genre: ["流行"]
+  - title: 失忆的金鱼
+    genre: ["流行"]
+  - title: 最美的期待
+    genre: ["流行"]
+  - title: 我的歌声里
+    genre: ["流行"]
+  - title: 我们的明天
+    genre: ["流行"]
+  - title: 爱的回归线
+    genre: ["流行"]
+  - title: 我的未来式
+    genre: ["流行", "甜歌"]
+  - title: 寂寞沙洲冷
+    genre: ["流行"]
+  - title: xx是垫的
+    genre: ["流行", "🟨"]
+  - title: 易燃易爆炸
+    genre: ["流行"]
+  - title: 可惜没如果
+    genre: ["流行"]
+  - title: 遗失的心跳
+    genre: ["流行"]
+  - title: 月光下暧昧
+    genre: ["流行", "甜歌"]
+  - title: 在夜里跳舞
+    genre: ["流行"]
+  - title: 雪落下的声音
+    genre: ["流行"]
+  - title: 永不失联的爱
+    genre: ["流行"]
+  - title: 阿拉斯加海湾
+    genre: ["流行"]
+  - title: 只对你有感觉
+    genre: ["流行", "甜歌"]
+  - title: 情深深雨蒙蒙
+    genre: ["流行"]
+  - title: 无人知晓的我
+    genre: ["流行"]
+  - title: 你还要我怎样
+    genre: ["流行"]
+  - title: 第一次爱的人
+    genre: ["流行"]
+  - title: 那女孩对我说
+    genre: ["流行"]
+  - title: 时光背面的我
+    genre: ["流行"]
+  - title: 魔鬼中的天使
+    genre: ["流行"]
+  - title: 羞答答的玫瑰
+    genre: ["流行"]
+  - title: 血腥爱情故事
+    genre: ["流行"]
+  - title: 化身孤岛的鲸
+    genre: ["流行"]
+  - title: 走得很慢的人
+    genre: ["流行"]
+  - title: 怕来者不是你
+    genre: ["流行", "甜歌"]
+  - title: 飘洋过海来看你
+    genre: ["流行"]
+  - title: 白月光与朱砂痣
+    genre: ["流行", "甜歌"]
+  - title: 这世界那么多人
+    genre: ["流行"]
+  - title: 不为谁而作的歌
+    genre: ["流行"]
+  - title: 爱了很久的朋友
+    genre: ["流行"]
+  - title: 你就不要想起我
+    genre: ["流行"]
+  - title: 不要忘记我爱你
+    genre: ["流行"]
+  - title: 为你我受冷风吹
+    genre: ["流行"]
+  - title: 听见下雨的声音
+    genre: ["流行"]
+  - title: 想你的365天
+    genre: ["流行"]
+  - title: 我曾遇到一束光
+    genre: ["流行"]
+  - title: 夏夜最后的烟火
+    genre: ["流行"]
+  - title: Round and round
+    genre: ["流行"]
+  - title: 亲爱的那不是爱情
+    genre: ["流行"]
+  - title: 一个人想着一个人
+    genre: ["流行"]
+  - title: 给我一个理由忘记
+    genre: ["流行"]
+  - title: 刻在我心底的名字
+    genre: ["流行"]
+  - title: 你的酒馆对我打了烊
+    genre: ["流行"]
+  - title: 如果你不曾爱过我
+    genre: ["流行"]
+  - title: 我不是你该爱的那个人
+    genre: ["流行"]
+  - title: 给你一瓶魔法药水
+    genre: ["流行", "甜歌"]
+  - title: 遇见你的时候所有星星都落到我头上
+    genre: ["流行", "甜歌"]
+  - title: 杀死那个石家庄人
+    genre: ["流行", "民谣"]
+  - title: 满天星辰不及你
+    genre: ["流行"]
+  - title: 我是不是你最疼爱的人
+    genre: ["流行"]
+
+  - title: 靠近
+    genre: ["甜歌"]
+  - title: 海芋恋
+    genre: ["甜歌"]
+  - title: 恶作剧
+    genre: ["甜歌"]
+  - title: 我们俩
+    genre: ["甜歌"]
+  - title: 小酒窝
+    genre: ["甜歌"]
+  - title: 有何不可
+    genre: ["甜歌"]
+  - title: 心恋
+    genre: ["甜歌"]
+  - title: 喂猪
+    genre: ["甜歌"]
+  - title: 好想你
+    genre: ["甜歌"]
+  - title: 彩虹的微笑
+    genre: ["甜歌"]
+  - title: 少女作妖日记
+    genre: ["甜歌"]
+  - title: 偷听对白
+    genre: ["甜歌"]

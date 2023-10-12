@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vtuber-calendar
+  namespace: vtuber
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`playlist.incubator4.com`)
+      kind: Rule
+      services:
+        - name: vtuber-playlist
+          port: 80
+  tls:
+    secretName: vtuber-playlist
