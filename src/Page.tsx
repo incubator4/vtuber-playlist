@@ -1,11 +1,14 @@
 import Timeline from "./Timeline";
 import PlayList from "./Playlist";
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import yaml from "js-yaml";
 
-const Page = () => {
+interface PageProps {
+  name: string;
+}
+
+const Page = (props: PageProps) => {
   const [config, setConfig] = useState<Config>({
     color: {
       red: 0,
@@ -17,27 +20,11 @@ const Page = () => {
   });
   const [error, setError] = useState("");
 
-  const location = useLocation();
-
-  let name = "";
-
-  const match = window.location.hostname.match(
-    /^(.*?)\.playlist\.incubator4\.com$/
-  );
-
-  if (match) {
-    const firstSegment = match[1];
-    console.log(firstSegment); // 输出 "a"
-    name = "/" + firstSegment;
-  } else {
-    name = location.pathname;
-  }
-
   useEffect(() => {
     const loadConfig = async () => {
       try {
         const response = await axios.get(
-          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${name}.yaml`
+          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${props.name}.yaml`
         ); // Replace with the actual path to your config.yaml file
         if (response.status === 200) {
           const parsedConfig = yaml.load(response.data);
