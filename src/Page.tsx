@@ -22,7 +22,9 @@ const Page = () => {
   useEffect(() => {
     const loadConfig = async () => {
       try {
-        const response = await axios.get(`/singer${location.pathname}.yaml`); // Replace with the actual path to your config.yaml file
+        const response = await axios.get(
+          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${location.pathname}.yaml`
+        ); // Replace with the actual path to your config.yaml file
         if (response.status === 200) {
           const parsedConfig = yaml.load(response.data);
           setConfig(parsedConfig as Config);
