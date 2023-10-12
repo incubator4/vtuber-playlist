@@ -15,11 +15,25 @@ function App() {
     },
   });
 
+  const match = window.location.hostname.match(
+    /^(.*?)\.playlist\.incubator4\.com$/
+  );
+
+  let name = "";
+
+  if (match) {
+    const firstSegment = match[1];
+    console.log(firstSegment); // 输出 "a"
+    name = "/" + firstSegment;
+  } else {
+    name = location.pathname;
+  }
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Router>
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={name ? <Page /> : <h1>Home</h1>} />
           <Route path="/*" element={<Page />} />
         </Routes>
       </Router>
