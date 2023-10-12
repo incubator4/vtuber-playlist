@@ -19,6 +19,20 @@ const Page = () => {
 
   const location = useLocation();
 
+  let name = "";
+
+  const match = window.location.hostname.match(
+    /^(.*?)\.playlist\.incubator4\.com$/
+  );
+
+  if (match) {
+    const firstSegment = match[1];
+    console.log(firstSegment); // 输出 "a"
+    name = firstSegment;
+  } else {
+    name = location.pathname;
+  }
+
   useEffect(() => {
     const loadConfig = async () => {
       try {
