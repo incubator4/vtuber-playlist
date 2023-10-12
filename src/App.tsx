@@ -14,23 +14,18 @@ function App() {
     },
   });
 
-  const match = window.location.hostname.match(
-    /^(.*?)\.playlist\.incubator4\.com$/
-  );
-
   let name = "";
 
-  if (match) {
-    const firstSegment = match[1];
-    console.log(firstSegment); // 输出 "a"
-    name = "/" + firstSegment;
+  if (location.hostname.endsWith(".playlist.incubator4.com")) {
+    name = location.hostname.replace(".playlist.incubator4.com", "");
   } else {
-    name = location.pathname;
+    if (location.pathname !== "/") {
+      name = location.pathname.slice(1, location.pathname.length);
+    }
   }
-
   return (
     <ThemeProvider theme={darkTheme}>
-      {name === "/" ? <h1>Home</h1> : <Page name={name} />}
+      {name === "" ? <h1>Home</h1> : <Page name={name} />}
 
       <footer>
         <p>{t("Copyright")}</p>

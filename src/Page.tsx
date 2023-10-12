@@ -24,7 +24,7 @@ const Page = (props: PageProps) => {
     const loadConfig = async () => {
       try {
         const response = await axios.get(
-          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${props.name}.yaml`
+          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer/${props.name}.yaml`
         ); // Replace with the actual path to your config.yaml file
         if (response.status === 200) {
           const parsedConfig = yaml.load(response.data);
