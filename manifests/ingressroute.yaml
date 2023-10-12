@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: vtuber-calendar
+  name: vtuber-playlist
   namespace: vtuber
 spec:
   entryPoints:
@@ -27,7 +27,7 @@ spec:
       middlewares:
         - name: add-lilon
   tls:
-    secretName: vtuber-playlist
+    secretName: vtuber-playlist-tls
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
