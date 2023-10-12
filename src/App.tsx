@@ -1,5 +1,4 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Page from "./Page";
 import { useTranslation } from "react-i18next";
 import { ThemeProvider, createTheme } from "@mui/material";
