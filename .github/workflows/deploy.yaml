@@ -30,4 +30,4 @@ jobs:
           manifests: |
             manifests/deployment.yaml
             manifests/service.yaml
-          images: "registry.cn-hangzhou.aliyuncs.com/incubator4/vtuber-playlist:${{ github.sha }}"
+          images: "registry.cn-hangzhou.aliyuncs.com/incubator4/vtuber-playlist:sha-${{ github.sha }}"
