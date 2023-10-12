@@ -33,7 +33,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <Router>
         <Routes>
-          <Route path="/" element={name === "" ? <h1>Home</h1> : <Page />} />
+          <Route path="/" element={match ? <Page /> : <h1>Home</h1>} />
           <Route path="/*" element={<Page />} />
         </Routes>
       </Router>
