@@ -7,7 +7,8 @@ spec:
   secretName: vtuber-playlist-tls
   dnsNames:
     - playlist.incubator4.com
-    - "*.playlist.incubator4.com"
+    - celine.playlist.incubator4.com
+    - lilon.playlist.incubator4.com
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer

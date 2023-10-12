@@ -12,5 +12,35 @@ spec:
       services:
         - name: vtuber-playlist
           port: 80
+    - match: Host(`celine.playlist.incubator4.com`)
+      kind: Rule
+      services:
+        - name: vtuber-playlist
+          port: 80
+      middlewares:
+        - name: add-celine
+    - match: Host(`lilon.playlist.incubator4.com`)
+      kind: Rule
+      services:
+        - name: vtuber-playlist
+          port: 80
+      middlewares:
+        - name: add-lilon
   tls:
     secretName: vtuber-playlist
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: add-celine
+spec:
+  addPrefix:
+    prefix: /celine
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: add-lilon
+spec:
+  addPrefix:
+    prefix: /lilon
