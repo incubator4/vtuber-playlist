@@ -28,7 +28,7 @@ const Page = () => {
   if (match) {
     const firstSegment = match[1];
     console.log(firstSegment); // 输出 "a"
-    name = firstSegment;
+    name = "/" + firstSegment;
   } else {
     name = location.pathname;
   }
@@ -37,7 +37,7 @@ const Page = () => {
     const loadConfig = async () => {
       try {
         const response = await axios.get(
-          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${location.pathname}.yaml`
+          `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer${name}.yaml`
         ); // Replace with the actual path to your config.yaml file
         if (response.status === 200) {
           const parsedConfig = yaml.load(response.data);
