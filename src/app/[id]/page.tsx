@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Config } from "@/types";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 
 import Playlist from "./Playlist";
@@ -24,7 +24,7 @@ export default function Page({ params }: { params: { id: string } }) {
         setData(data as Config);
         setLoading(false);
       });
-  }, []);
+  }, [params.id]);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No profile data</p>;
