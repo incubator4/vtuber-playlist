@@ -4,7 +4,7 @@ import { Config } from "@/types";
 import yaml from "js-yaml";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   context: { params: { id: string } }
 ) {
   const { id } = context.params;
