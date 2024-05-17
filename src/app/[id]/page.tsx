@@ -26,9 +26,6 @@ export default function Page({ params }: { params: { id: string } }) {
       });
   }, [params.id]);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
@@ -50,7 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </Card>
 
       <div style={{ width: "100%" }}>
-        <Playlist data={data.playlist} />
+        <Playlist isLoading={isLoading} data={data.playlist} />
       </div>
     </div>
   );

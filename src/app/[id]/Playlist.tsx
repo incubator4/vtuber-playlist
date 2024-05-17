@@ -12,6 +12,7 @@ import { Song } from "@/types";
 
 interface PlaylistProps {
   data: Array<Song>;
+  isLoading: boolean;
 }
 
 const columns = [
@@ -31,7 +32,7 @@ export default function App(props: PlaylistProps) {
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
-      <TableBody items={data}>
+      <TableBody isLoading={props.isLoading} items={data}>
         {(item) => (
           <TableRow key={item.key}>
             {(columnKey) => (
