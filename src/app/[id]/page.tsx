@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/${params.id}`)
+    fetch(`/api/${params.id.toLowerCase()}`, { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         setData(data as Config);
