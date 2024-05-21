@@ -5,6 +5,7 @@ import { NextUIProvider } from "@nextui-org/system";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
+import NavBar from "@/componets/NavBar";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -16,7 +17,8 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 
   return (
     <NextUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps} defaultTheme="system">
+      <NextThemesProvider {...themeProps}>
+        <NavBar />
         {children}
       </NextThemesProvider>
     </NextUIProvider>
