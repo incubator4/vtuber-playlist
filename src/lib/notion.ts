@@ -20,15 +20,20 @@ const getNotionClient = () => {
 
 export const getUsers = async () => {
   const notion = getNotionClient();
-  const { results } = await notion.databases.query({
-    database_id: database.user,
-  });
-  return (results as PageObjectResponse[]).map((result) => ({
-    id: getID(result.properties.id),
-    name: getName(result.properties.Name),
-    uid: getUID(result.properties.UID),
-    avatar: getAvatar(result.properties.Avatar),
-  }));
+
+  try {
+    const { results } = await notion.databases.query({
+      database_id: database.user,
+    });
+    return (results as PageObjectResponse[]).map((result) => ({
+      id: getID(result.properties.id),
+      name: getName(result.properties.Name),
+      uid: getUID(result.properties.UID),
+      avatar: getAvatar(result.properties.Avatar),
+    }));
+  } catch {
+    return [];
+  }
 };
 
 export const getUser = async (id: string) => {
