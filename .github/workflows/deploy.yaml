@@ -17,14 +17,14 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - name: Deploy Setup Resource
-        uses: Azure/k8s-deploy@v4
+        uses: Azure/k8s-deploy@v5
         with:
           namespace: "vtuber"
           manifests: |
             manifests/ingressroute.yaml
             manifests/certificate.yaml
       - name: Deploy Web
-        uses: Azure/k8s-deploy@v4
+        uses: Azure/k8s-deploy@v5
         with:
           namespace: "vtuber"
           manifests: |
