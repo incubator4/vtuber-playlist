@@ -7,37 +7,28 @@ import {
 type MapProp = PageObjectResponse["properties"];
 type Prop = MapProp[keyof MapProp];
 
+const notion = new Client({
+  auth: process.env.NOTION_TOKEN,
+});
+
 const database = {
   user: "aea9b2d3ada94e6eac577077189a78ed",
   playlist: "81769e93528c4fe28d85c07e2c78ad5e",
 };
 
-const getNotionClient = () => {
-  return new Client({
-    auth: process.env.NOTION_TOKEN,
-  });
-};
-
 export const getUsers = async () => {
-  const notion = getNotionClient();
-
-  try {
-    const { results } = await notion.databases.query({
-      database_id: database.user,
-    });
-    return (results as PageObjectResponse[]).map((result) => ({
-      id: getID(result.properties.id),
-      name: getName(result.properties.Name),
-      uid: getUID(result.properties.UID),
-      avatar: getAvatar(result.properties.Avatar),
-    }));
-  } catch {
-    return [];
-  }
+  const { results } = await notion.databases.query({
+    database_id: database.user,
+  });
+  return (results as PageObjectResponse[]).map((result) => ({
+    id: getID(result.properties.id),
+    name: getName(result.properties.Name),
+    uid: getUID(result.properties.UID),
+    avatar: getAvatar(result.properties.Avatar),
+  }));
 };
 
 export const getUser = async (id: string) => {
-  const notion = getNotionClient();
   const { results } = await notion.databases.query({
     database_id: database.user,
     filter: {
@@ -54,8 +45,7 @@ export const getUser = async (id: string) => {
 };
 
 export const getPlaylist = async (userId: string) => {
-  const notion = getNotionClient();
-  const results = await getAllPages(notion, database.playlist, null, {
+  const results = await getAllPages(database.playlist, null, {
     property: "User",
     relation: {
       contains: userId,
@@ -76,7 +66,6 @@ export const getPlaylist = async (userId: string) => {
 };
 
 const getAllPages = async (
-  notion: Client,
   database_id: string,
   start_cursor: string | null,
   filter: QueryDatabaseParameters["filter"]
@@ -91,9 +80,7 @@ const getAllPages = async (
 
   pages.push(...results.map((result) => result as PageObjectResponse));
   if (has_more) {
-    pages.push(
-      ...(await getAllPages(notion, database_id, next_cursor, filter))
-    );
+    pages.push(...(await getAllPages(database_id, next_cursor, filter)));
   }
 
   return pages;

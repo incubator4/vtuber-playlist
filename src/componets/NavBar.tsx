@@ -18,7 +18,7 @@ const Componet = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
 
-  const menuItems: string[] = [];
+  const menuItems: string[] = ["Users"];
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll>
       <NavbarContent>
