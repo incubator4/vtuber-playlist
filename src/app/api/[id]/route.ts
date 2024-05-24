@@ -1,7 +1,6 @@
 "use server";
 import { NextResponse } from "next/server";
-import { Config } from "@/types";
-import yaml from "js-yaml";
+import { getUser, getPlaylist } from "@/lib/notion";
 
 export async function GET(
   _request: Request,
@@ -9,14 +8,29 @@ export async function GET(
 ) {
   const { id } = context.params;
 
-  const resp = await fetch(
-    `https://vtuber-1256553639.cos.ap-shanghai.myqcloud.com/singer/${id}.yaml`
-  );
+  const userInfo = await getUser(id);
 
-  const data = await resp.text();
+  if (!userInfo) {
+    return NextResponse.json(
+      { error: `User ${id} not found` },
+      { status: 404 }
+    );
+  }
 
-  const config = yaml.load(data) as Config;
+  const { id: userId, properties } = userInfo;
+
+  let avatar = "";
+  const avatarProp = properties["Avatar"];
+
+  if (avatarProp && avatarProp.type === "url") {
+    avatar = avatarProp.url || "";
+  }
+
+  const playlist = await getPlaylist(userId);
 
   // config to json
-  return NextResponse.json(config);
+  return NextResponse.json({
+    playlist,
+    avatar,
+  });
 }
