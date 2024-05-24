@@ -2,11 +2,11 @@ name: Build Docker
 
 # ignore dependabot
 on:
-  - push
-
+  push:
+    branches:
+      - main
 jobs:
-  build-web:
-    if: github.actor == 'dependabot[bot]'
+  build-docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
