@@ -165,10 +165,11 @@ export default function App(props: PlaylistProps) {
   }, [
     filterValue,
     onSearchChange,
-    hasSearchFilter,
     genreFilter,
     genreOptions,
     onClear,
+    filteredData,
+    copy,
   ]);
 
   return (
