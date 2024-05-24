@@ -12,9 +12,11 @@ import {
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import ThemeSwitcher from "@/componets/ThemeSwitcher";
+import { useRouter } from "next/navigation";
 
 const Componet = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const menuItems: string[] = [];
   return (
@@ -26,7 +28,17 @@ const Componet = () => {
         />
         <NavbarBrand>
           {/* <AcmeLogo /> */}
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">
+            <Link
+              isBlock
+              onClick={() => {
+                router.push("/");
+              }}
+              color="foreground"
+            >
+              Playlist
+            </Link>
+          </p>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent justify="end">

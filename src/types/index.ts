@@ -20,3 +20,10 @@ export interface Song {
   genre: string[];
   lang: string;
 }
+
+export interface User {
+  id: string;
+  avatar: string;
+  name: string;
+  uid: number;
+}

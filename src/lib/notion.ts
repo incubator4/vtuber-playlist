@@ -13,6 +13,18 @@ const database = {
   playlist: "81769e93528c4fe28d85c07e2c78ad5e",
 };
 
+export const getUsers = async () => {
+  const { results } = await notion.databases.query({
+    database_id: database.user,
+  });
+  return (results as PageObjectResponse[]).map((result) => ({
+    id: getID(result.properties.id),
+    name: getName(result.properties.Name),
+    uid: getUID(result.properties.UID),
+    avatar: getAvatar(result.properties.Avatar),
+  }));
+};
+
 export const getUser = async (id: string) => {
   const { results } = await notion.databases.query({
     database_id: database.user,
@@ -114,4 +126,48 @@ const getLanguage = (prop: Prop) => {
   }
 
   return prop.select ? prop.select.name : "";
+};
+
+const getName = (prop: Prop) => {
+  if (prop.type !== "title") {
+    return "Err: prop is not rich_text";
+  }
+
+  const text = prop.title;
+
+  if (text.length === 0) {
+    return "Err: text is empty";
+  }
+
+  return text[0].plain_text;
+};
+
+const getID = (prop: Prop) => {
+  if (prop.type !== "rich_text") {
+    return "Err: prop is not rich_text";
+  }
+
+  const text = prop.rich_text;
+
+  if (text.length === 0) {
+    return "Err: text is empty";
+  }
+
+  return text[0].plain_text;
+};
+
+const getUID = (prop: Prop) => {
+  if (prop.type !== "number") {
+    return -1;
+  }
+
+  return prop.number;
+};
+
+const getAvatar = (prop: Prop) => {
+  if (prop.type !== "url") {
+    return "Err: prop is not url";
+  }
+
+  return prop.url;
 };
