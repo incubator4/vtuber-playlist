@@ -7,20 +7,19 @@ import {
 type MapProp = PageObjectResponse["properties"];
 type Prop = MapProp[keyof MapProp];
 
-if (!process.env.NOTION_TOKEN) {
-  throw new Error("Please set NOTION_TOKEN environment variable");
-}
-
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
-
 const database = {
   user: "aea9b2d3ada94e6eac577077189a78ed",
   playlist: "81769e93528c4fe28d85c07e2c78ad5e",
 };
 
+const getNotionClient = () => {
+  return new Client({
+    auth: process.env.NOTION_TOKEN,
+  });
+};
+
 export const getUsers = async () => {
+  const notion = getNotionClient();
   const { results } = await notion.databases.query({
     database_id: database.user,
   });
@@ -33,6 +32,7 @@ export const getUsers = async () => {
 };
 
 export const getUser = async (id: string) => {
+  const notion = getNotionClient();
   const { results } = await notion.databases.query({
     database_id: database.user,
     filter: {
@@ -49,7 +49,8 @@ export const getUser = async (id: string) => {
 };
 
 export const getPlaylist = async (userId: string) => {
-  const results = await getAllPages(database.playlist, null, {
+  const notion = getNotionClient();
+  const results = await getAllPages(notion, database.playlist, null, {
     property: "User",
     relation: {
       contains: userId,
@@ -70,6 +71,7 @@ export const getPlaylist = async (userId: string) => {
 };
 
 const getAllPages = async (
+  notion: Client,
   database_id: string,
   start_cursor: string | null,
   filter: QueryDatabaseParameters["filter"]
@@ -84,7 +86,9 @@ const getAllPages = async (
 
   pages.push(...results.map((result) => result as PageObjectResponse));
   if (has_more) {
-    pages.push(...(await getAllPages(database_id, next_cursor, filter)));
+    pages.push(
+      ...(await getAllPages(notion, database_id, next_cursor, filter))
+    );
   }
 
   return pages;
