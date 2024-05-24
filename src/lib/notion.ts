@@ -1,7 +1,7 @@
 import { Client } from "@notionhq/client";
 import {
   PageObjectResponse,
-  QueryDatabaseBodyParameters,
+  QueryDatabaseParameters,
 } from "@notionhq/client/build/src/api-endpoints";
 
 type MapProp = PageObjectResponse["properties"];
@@ -68,7 +68,7 @@ export const getPlaylist = async (userId: string) => {
 const getAllPages = async (
   database_id: string,
   start_cursor: string | null,
-  filter: (typeof QueryDatabaseBodyParameters)["filter"] = {}
+  filter: QueryDatabaseParameters["filter"]
 ) => {
   const pages: PageObjectResponse[] = [];
 
