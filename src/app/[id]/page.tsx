@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Config } from "@/types";
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
+import { Skeleton } from "@nextui-org/skeleton";
 
 import Playlist from "./Playlist";
 export default function Page({ params }: { params: { id: string } }) {
@@ -37,12 +38,14 @@ export default function Page({ params }: { params: { id: string } }) {
           <h4 className="font-bold text-large">Frontend Radio</h4>
         </CardHeader>
         <CardBody className="overflow-visible py-2">
-          <Image
-            width={300}
-            height={200}
-            alt="NextUI hero Image with delay"
-            src={data.avatar}
-          />
+          <Skeleton isLoaded={!isLoading}>
+            <Image
+              width={300}
+              height={200}
+              alt="NextUI hero Image with delay"
+              src={data.avatar}
+            />
+          </Skeleton>
         </CardBody>
       </Card>
 

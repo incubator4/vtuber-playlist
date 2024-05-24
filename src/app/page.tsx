@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="flex gap-4 grid grid-cols-2 sm:grid-cols-4">
+      <div className="flex gap-2 grid grid-cols-2 sm:grid-cols-4">
         {data.map((user) => (
           <Card
             key={user.id}
@@ -32,6 +32,8 @@ export default function Home() {
           >
             <Image
               alt="Woman listing to music"
+              isBlurred
+              isZoomed
               className="object-cover"
               height={200}
               src={user.avatar}

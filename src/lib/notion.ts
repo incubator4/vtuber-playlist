@@ -1,5 +1,8 @@
 import { Client } from "@notionhq/client";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  PageObjectResponse,
+  QueryDatabaseBodyParameters,
+} from "@notionhq/client/build/src/api-endpoints";
 
 type MapProp = PageObjectResponse["properties"];
 type Prop = MapProp[keyof MapProp];
@@ -42,15 +45,11 @@ export const getUser = async (id: string) => {
 };
 
 export const getPlaylist = async (userId: string) => {
-  const { results } = await notion.databases.query({
-    database_id: database.playlist,
-    filter: {
-      property: "User",
-      relation: {
-        contains: userId,
-      },
+  const results = await getAllPages(database.playlist, null, {
+    property: "User",
+    relation: {
+      contains: userId,
     },
-    page_size: 100,
   });
 
   return results
@@ -68,18 +67,20 @@ export const getPlaylist = async (userId: string) => {
 
 const getAllPages = async (
   database_id: string,
-  start_cursor: string | null
+  start_cursor: string | null,
+  filter: (typeof QueryDatabaseBodyParameters)["filter"] = {}
 ) => {
   const pages: PageObjectResponse[] = [];
 
   const { results, has_more, next_cursor } = await notion.databases.query({
     database_id,
     start_cursor: start_cursor ?? undefined,
+    filter,
   });
 
   pages.push(...results.map((result) => result as PageObjectResponse));
   if (has_more) {
-    pages.push(...(await getAllPages(database_id, next_cursor)));
+    pages.push(...(await getAllPages(database_id, next_cursor, filter)));
   }
 
   return pages;

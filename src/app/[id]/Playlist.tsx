@@ -123,6 +123,21 @@ export default function App(props: PlaylistProps) {
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
+            <Button
+              onClick={() => {
+                const randomIndex = Math.floor(
+                  Math.random() * filteredData.length
+                );
+                copy(`点歌 ${filteredData[randomIndex].title}`).then(() => {
+                  alert(
+                    `歌曲 "${filteredData[randomIndex].title}" 已复制到剪切板`
+                  );
+                });
+              }}
+            >
+              Random In
+              <p>{filteredData.length} Items</p>
+            </Button>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button>Genre</Button>
