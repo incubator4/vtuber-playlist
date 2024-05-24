@@ -7,6 +7,10 @@ import {
 type MapProp = PageObjectResponse["properties"];
 type Prop = MapProp[keyof MapProp];
 
+if (!process.env.NOTION_TOKEN) {
+  throw new Error("Please set NOTION_TOKEN environment variable");
+}
+
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
