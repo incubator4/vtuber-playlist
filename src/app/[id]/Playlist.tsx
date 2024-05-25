@@ -13,6 +13,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Chip } from "@nextui-org/chip";
+import { Pagination } from "@nextui-org/pagination";
 import {
   Dropdown,
   DropdownTrigger,
@@ -51,6 +52,8 @@ export default function App(props: PlaylistProps) {
   const [filterValue, setFilterValue] = useState("");
   const [genreOptions, setGenreOptions] = useState<Array<Option<string>>>([]);
   const [genreFilter, setGenreFilter] = useState<Selection>("all");
+  const [page, setPage] = useState(1);
+  const [rowPerPage, setRowPerPage] = useState(25);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -67,9 +70,15 @@ export default function App(props: PlaylistProps) {
     setGenreOptions(options);
   }, [data]);
 
+  const onRowChange = useCallback((val: number) => {
+    setRowPerPage(val);
+    setPage(1);
+  }, []);
+
   const onSearchChange = useCallback((value: string) => {
     if (value) {
       setFilterValue(value);
+      setPage(1);
     } else {
       setFilterValue("");
     }
@@ -106,8 +115,15 @@ export default function App(props: PlaylistProps) {
         );
       });
     }
+
     return filteredData;
   }, [data, genreFilter, filterValue, hasSearchFilter, genreOptions]);
+
+  const items = useMemo(() => {
+    const start = (page - 1) * rowPerPage;
+    const end = start + rowPerPage;
+    return filteredData.slice(start, end);
+  }, [page, rowPerPage, filteredData]);
 
   const topContent = useMemo(() => {
     return (
@@ -172,9 +188,66 @@ export default function App(props: PlaylistProps) {
     copy,
   ]);
 
+  const buttomContent = useMemo(() => {
+    return (
+      <div className="py-2 px-2 flex justify-between items-center">
+        <Pagination
+          showControls
+          classNames={{
+            cursor: "bg-foreground text-background",
+          }}
+          siblings={1}
+          boundaries={2}
+          color="default"
+          isDisabled={hasSearchFilter}
+          page={page}
+          total={Math.ceil(filteredData.length / rowPerPage)}
+          variant="light"
+          onChange={setPage}
+        />
+        <Dropdown>
+          <DropdownTrigger>
+            <Button>{rowPerPage} per page</Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            variant="flat"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={new Set([rowPerPage])}
+            onSelectionChange={(keys) => {
+              let numbers = Array.from(keys as Set<number>);
+              onRowChange(numbers[0]);
+            }}
+            items={[10, 25, 50, 100].map((item) => ({
+              key: item,
+              label: item,
+            }))}
+          >
+            {(item) => <DropdownItem key={item.key}>{item.label}</DropdownItem>}
+          </DropdownMenu>
+        </Dropdown>
+        <span className="text-small text-default-400">
+          {genreFilter === "all"
+            ? "All items selected"
+            : `${genreFilter.size} of ${data.length} selected`}
+        </span>
+      </div>
+    );
+  }, [
+    filterValue,
+    data.length,
+    page,
+    rowPerPage,
+    filteredData.length,
+    hasSearchFilter,
+    genreFilter,
+    onRowChange,
+  ]);
+
   return (
     <Table
       topContent={topContent}
+      bottomContent={buttomContent}
       onRowAction={(key) => {
         const item = data[key as number];
         copy(`点歌 ${item.title}`).then(() => {
@@ -186,7 +259,7 @@ export default function App(props: PlaylistProps) {
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
-      <TableBody isLoading={props.isLoading} items={filteredData}>
+      <TableBody isLoading={props.isLoading} items={items}>
         {(item) => (
           <TableRow key={item.key}>
             {(columnKey) => (

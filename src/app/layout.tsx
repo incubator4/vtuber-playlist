@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body>
-        <Providers themeProps={{ attribute: "class" }}>{children}</Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
