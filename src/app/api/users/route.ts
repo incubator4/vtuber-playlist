@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { getUsers } from "@/lib/notion";
+import prisma from "@/lib/db";
 
 export async function GET(_request: Request) {
-  const users = await getUsers();
+  const users = await prisma.user.findMany();
 
   return NextResponse.json(users);
 }

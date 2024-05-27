@@ -25,7 +25,7 @@ export default function Home() {
       <div className="flex gap-2 grid grid-cols-2 sm:grid-cols-4">
         {data.map((user) => (
           <Card
-            key={user.id}
+            key={user.uid}
             isFooterBlurred
             radius="lg"
             className="border-none p-4"
@@ -47,7 +47,7 @@ export default function Home() {
                 color="default"
                 radius="lg"
                 size="sm"
-                onClick={() => router.push(`/${user.id}`)}
+                onClick={() => router.push(`/${user.nickname}`)}
               >
                 Detail
               </Button>

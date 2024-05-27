@@ -1,6 +1,6 @@
 "use server";
 import { NextResponse } from "next/server";
-import { getUser, getPlaylist } from "@/lib/notion";
+import prisma from "@/lib/db";
 
 export async function GET(
   _request: Request,
@@ -8,25 +8,50 @@ export async function GET(
 ) {
   const { id } = context.params;
 
-  const userInfo = await getUser(id);
+  // prisma select user where nickname = id
+  const user = await prisma.user.findUnique({
+    where: {
+      nickname: id,
+    },
+  });
 
-  if (!userInfo) {
+  if (!user) {
     return NextResponse.json(
       { error: `User ${id} not found` },
       { status: 404 }
     );
   }
 
-  const { id: userId, properties } = userInfo;
+  const { avatar } = user;
 
-  let avatar = "";
-  const avatarProp = properties["Avatar"];
+  const _playlist = await prisma.playlist.findMany({
+    where: {
+      userId: user.uid,
+    },
+    include: {
+      song: {
+        include: {
+          genresOnSongs: {
+            include: {
+              genre: true,
+            },
+          },
+        },
+      },
+    },
+  });
 
-  if (avatarProp && avatarProp.type === "url") {
-    avatar = avatarProp.url || "";
-  }
-
-  const playlist = await getPlaylist(userId);
+  const playlist = _playlist.map(({ song, tags }) => {
+    const { id, title, artist, genresOnSongs, lang } = song;
+    return {
+      id,
+      tags,
+      title,
+      artist,
+      lang,
+      genre: genresOnSongs.map(({ genre }) => genre),
+    };
+  });
 
   // config to json
   return NextResponse.json({

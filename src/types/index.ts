@@ -14,15 +14,21 @@ export interface Config {
   playlist: Array<Song>;
 }
 
+export interface Genre {
+  id: number;
+  name: string;
+}
+
 export interface Song {
+  id: number;
   title: string;
   artist: string;
-  genre: string[];
+  genre: Genre[];
   lang: string;
 }
 
 export interface User {
-  id: string;
+  nickname: string;
   avatar: string;
   name: string;
   uid: number;

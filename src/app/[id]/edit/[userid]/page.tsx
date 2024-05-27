@@ -50,7 +50,11 @@ export default function Page({ params }: { params: { id: string } }) {
       </Card>
 
       <div style={{ width: "100%" }}>
-        <Playlist isLoading={isLoading} data={data.playlist} />
+        <Playlist
+          isLoading={isLoading}
+          data={data.playlist}
+          actions={["a", "b"]}
+        />
       </div>
     </div>
   );

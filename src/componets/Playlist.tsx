@@ -27,48 +27,40 @@ import { Song } from "@/types";
 interface PlaylistProps {
   data: Array<Song>;
   isLoading: boolean;
+  actions?: string[];
 }
-
-interface Option<T> {
-  key: string | number;
-  label: T;
-}
-
-const columns = [
-  { key: "title", label: "Title" },
-  { key: "genre", label: "Genre" },
-  { key: "artist", label: "Artist" },
-  { key: "lang", label: "Language" },
-];
 
 export default function App(props: PlaylistProps) {
-  const data = useMemo(
-    () => props.data.map((item, index) => ({ ...item, key: index })),
-    [props.data]
-  );
+  const columns = [
+    { key: "title", label: "Title" },
+    { key: "genre", label: "Genre" },
+    { key: "artist", label: "Artist" },
+    { key: "lang", label: "Language" },
+  ];
+
+  if (props.actions) {
+    columns.push({ key: "actions", label: "Actions" });
+  }
 
   const [_, copy] = useCopyToClipboard();
 
   const [filterValue, setFilterValue] = useState("");
-  const [genreOptions, setGenreOptions] = useState<Array<Option<string>>>([]);
   const [genreFilter, setGenreFilter] = useState<Selection>("all");
   const [page, setPage] = useState(1);
   const [rowPerPage, setRowPerPage] = useState(25);
 
   const hasSearchFilter = Boolean(filterValue);
 
-  useEffect(() => {
-    // every item on data has a genre array, merge all and unique
-    const options = data
+  const genreOptions = useMemo(() => {
+    return props.data
       .map((item) => item.genre)
       .flat()
       .filter((v, i, a) => a.indexOf(v) === i)
-      .map((item, index) => ({
-        key: index,
-        label: item,
+      .map((item) => ({
+        key: item.id,
+        label: item.name,
       }));
-    setGenreOptions(options);
-  }, [data]);
+  }, [props.data]);
 
   const onRowChange = useCallback((val: number) => {
     setRowPerPage(val);
@@ -89,7 +81,7 @@ export default function App(props: PlaylistProps) {
   }, []);
 
   const filteredData = useMemo(() => {
-    let filteredData = [...data];
+    let filteredData = [...props.data];
 
     if (hasSearchFilter) {
       filteredData = filteredData.filter((item) =>
@@ -111,13 +103,13 @@ export default function App(props: PlaylistProps) {
         );
 
         return selectedGenres.some((genre) =>
-          item.genre.includes(genre?.label || "")
+          item.genre.map((i) => i.name).includes(genre?.label || "")
         );
       });
     }
 
     return filteredData;
-  }, [data, genreFilter, filterValue, hasSearchFilter, genreOptions]);
+  }, [props.data, genreFilter, filterValue, hasSearchFilter, genreOptions]);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowPerPage;
@@ -229,13 +221,12 @@ export default function App(props: PlaylistProps) {
         <span className="text-small text-default-400">
           {genreFilter === "all"
             ? "All items selected"
-            : `${genreFilter.size} of ${data.length} selected`}
+            : `${genreFilter.size} of ${props.data.length} selected`}
         </span>
       </div>
     );
   }, [
-    filterValue,
-    data.length,
+    props.data.length,
     page,
     rowPerPage,
     filteredData.length,
@@ -244,12 +235,44 @@ export default function App(props: PlaylistProps) {
     onRowChange,
   ]);
 
+  const renderCell = useCallback(
+    (item: Song, columnKey: React.Key) => {
+      switch (columnKey) {
+        case "genre":
+          return (
+            <div>
+              {item.genre.map((g) => (
+                <Fragment key={`${item.id}-${columnKey}-${g.id}`}>
+                  <Chip style={{ margin: "0.2rem" }}>{g.name}</Chip>
+                </Fragment>
+              ))}
+            </div>
+          );
+        case "actions":
+          return (
+            <div className="flex gap gap-2">
+              {props.actions?.map((action, index) => (
+                <Fragment key={index}>
+                  <Button size="sm" key={index}>
+                    {action}
+                  </Button>
+                </Fragment>
+              ))}
+            </div>
+          );
+        default:
+          return getKeyValue(item, columnKey);
+      }
+    },
+    [props.actions]
+  );
+
   return (
     <Table
       topContent={topContent}
       bottomContent={buttomContent}
       onRowAction={(key) => {
-        const item = data[key as number];
+        const item = props.data[key as number];
         copy(`点歌 ${item.title}`).then(() => {
           alert(`歌曲 "${item.title}" 已复制到剪切板`);
         });
@@ -261,22 +284,10 @@ export default function App(props: PlaylistProps) {
       </TableHeader>
       <TableBody isLoading={props.isLoading} items={items}>
         {(item) => (
-          <TableRow key={item.key}>
+          <TableRow key={item.id}>
             {(columnKey) => (
-              <TableCell key={`${item.key}-${columnKey}`}>
-                {columnKey === "genre" ? (
-                  <div>
-                    {getKeyValue(item, columnKey).map(
-                      (i: string, index: number) => (
-                        <Fragment key={`${item.key}-${columnKey}-${index}`}>
-                          <Chip style={{ margin: "0.2rem" }}>{i}</Chip>
-                        </Fragment>
-                      )
-                    )}
-                  </div>
-                ) : (
-                  getKeyValue(item, columnKey)
-                )}
+              <TableCell key={`${item.id}-${columnKey}`}>
+                {renderCell(item, columnKey)}
               </TableCell>
             )}
           </TableRow>

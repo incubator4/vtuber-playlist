@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model genre {
+  id            Int             @id @default(autoincrement())
+  name          String
+  genresOnSongs genresOnSongs[]
+}
+
+model song {
+  id            Int             @id @default(autoincrement())
+  title         String
+  artist        String
+  lang          String
+  genresOnSongs genresOnSongs[]
+  playlist      playlist[]
+}
+
+model genresOnSongs {
+  genreId Int   @map("genre_id")
+  songId  Int   @map("song_id")
+  genre   genre @relation(fields: [genreId], references: [id])
+  song    song  @relation(fields: [songId], references: [id])
+
+  @@id([genreId, songId])
+  @@map("genres_on_songs")
+}
+
+model user {
+  uid      BigInt     @id
+  name     String
+  nickname String     @unique
+  avatar   String
+  playlist playlist[]
+}
+
+model playlist {
+  userId BigInt   @map("user_id")
+  songId Int      @map("song_id")
+  tags   String[]
+  song   song     @relation(fields: [songId], references: [id])
+  user   user     @relation(fields: [userId], references: [uid])
+
+  @@id([userId, songId])
+}
