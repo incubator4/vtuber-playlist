@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, useCallback, useEffect, Fragment } from "react";
+import { useState, useMemo, useCallback, Fragment } from "react";
 import {
   Table,
   TableHeader,
