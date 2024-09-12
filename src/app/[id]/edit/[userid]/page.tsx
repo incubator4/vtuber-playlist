@@ -6,6 +6,7 @@ import { Image } from "@nextui-org/image";
 import { Skeleton } from "@nextui-org/skeleton";
 
 import Playlist from "@/componets/Playlist";
+export const runtime = "edge";
 export default function Page({ params }: { params: { id: string } }) {
   const [data, setData] = useState<Config>({
     color: {
