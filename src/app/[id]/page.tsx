@@ -42,7 +42,9 @@ export default function Page({ params }: { params: { id: string } }) {
           <Skeleton isLoaded={!isLoading}>
             <Image
               width={300}
-              height={200}
+              height={300}
+              isBlurred
+              isZoomed
               alt="NextUI hero Image with delay"
               src={data.avatar}
             />
