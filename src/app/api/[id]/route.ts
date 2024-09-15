@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/db";
+import { db } from "@/lib/db";
 
 export const runtime = "edge";
 export async function GET(
@@ -9,30 +9,48 @@ export async function GET(
   const { id } = context.params;
 
   // prisma select user where nickname = id
-  const user = await prisma.user.findUnique({
-    where: {
-      nickname: id,
-    },
+  // const user = await db.user.findUnique({
+  //   where: {
+  //     nickname: id,
+  //   },
+  // });
+
+  const u = await db.query.user.findFirst({
+    where: (user, { eq }) => eq(user.nickname, id),
   });
 
-  if (!user) {
+  if (!u) {
     return NextResponse.json(
       { error: `User ${id} not found` },
       { status: 404 }
     );
   }
 
-  const { avatar } = user;
+  const { avatar } = u;
 
-  const _playlist = await prisma.playlist.findMany({
-    where: {
-      userId: user.uid,
-    },
-    include: {
+  // const _playlist = await prisma.playlist.findMany({
+  //   where: {
+  //     userId: user.uid,
+  //   },
+  //   include: {
+  //     song: {
+  //       include: {
+  //         genresOnSongs: {
+  //           include: {
+  //             genre: true,
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  // });
+  const _playlist = await db.query.playlist.findMany({
+    where: (playlist, { eq }) => eq(playlist.userId, u.uid),
+    with: {
       song: {
-        include: {
+        with: {
           genresOnSongs: {
-            include: {
+            with: {
               genre: true,
             },
           },

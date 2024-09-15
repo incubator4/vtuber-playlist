@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "prisma generate",
+    "generate": "npx drizzle-kit migrate",
     "prepare": "husky",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && wrangler pages dev",
@@ -36,8 +36,6 @@
     "@nextui-org/tabs": "^2.0.29",
     "@nextui-org/theme": "2.2.0",
     "@notionhq/client": "^2.2.15",
-    "@prisma/adapter-neon": "^5.19.1",
-    "@prisma/client": "^5.14.0",
     "@react-aria/ssr": "^3.9.2",
     "@react-aria/visually-hidden": "^3.8.10",
     "@types/node": "20.12.12",
@@ -45,6 +43,8 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.19",
     "clsx": "^2.0.0",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.2.1",
     "framer-motion": "^11.1.1",
@@ -64,6 +64,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
     "@types/js-yaml": "^4.0.9",
+    "drizzle-kit": "^0.24.2",
     "husky": "^9.0.11"
   }
 }
