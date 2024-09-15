@@ -10,7 +10,7 @@ import {
   foreignKey,
   primaryKey,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
+// import { sql } from "drizzle-orm";
 
 export const prismaMigrations = pgTable("_prisma_migrations", {
   id: varchar("id", { length: 36 }).primaryKey().notNull(),
