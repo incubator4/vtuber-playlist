@@ -33,7 +33,7 @@ export default function Home() {
             <Image
               alt="Woman listing to music"
               isBlurred
-              isZoomed
+              // isZoomed
               className="object-cover"
               height={200}
               src={user.avatar}
