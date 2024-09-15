@@ -1,12 +1,22 @@
-import "dotenv/config";
+import "dotenv-expand/config";
+
+import { createEnv } from "@t3-oss/env-core";
 import { defineConfig } from "drizzle-kit";
+import { z } from "zod";
+
+const env = createEnv({
+  server: {
+    DATABASE_URL: z.string().url().min(1),
+  },
+  runtimeEnv: process.env,
+});
 
 export default defineConfig({
   dialect: "postgresql",
   out: "./src/drizzle",
   schema: "./src/drizzle/schema.ts",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: env.DATABASE_URL,
   },
   // Print all statements
   verbose: true,
