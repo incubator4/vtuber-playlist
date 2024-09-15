@@ -1,7 +1,13 @@
+import { PrismaNeon } from "@prisma/adapter-neon";
+import { Pool } from "@neondatabase/serverless";
 import { PrismaClient } from "@prisma/client";
 
+const connectionString = `${process.env.DATABASE_URL}`;
+
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  const pool = new Pool({ connectionString });
+  const adapter = new PrismaNeon(pool);
+  return new PrismaClient({ adapter });
 };
 
 declare const globalThis: {
