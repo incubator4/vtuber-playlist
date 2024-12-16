@@ -13,7 +13,7 @@ jobs:
         with:
           version: "latest"
         id: install
-      - uses: Azure/k8s-set-context@v2
+      - uses: Azure/k8s-set-context@v4
         with:
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - name: Deploy Setup Resource
